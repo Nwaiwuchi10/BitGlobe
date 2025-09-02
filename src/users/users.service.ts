@@ -111,6 +111,7 @@ export class UsersService {
       lastName: user.lastName,
       password: user.password,
       country: user.country,
+      isAdmin: user.isAdmin,
     };
   }
 
