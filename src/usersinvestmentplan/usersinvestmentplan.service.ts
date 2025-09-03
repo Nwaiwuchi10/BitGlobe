@@ -139,4 +139,16 @@ export class UsersinvestmentplanService {
       { new: true },
     );
   }
+  async getUserInvestments(userId: string) {
+    if (!userId) {
+      throw new NotFoundException('Invalid user ID');
+    }
+
+    return this.usersInvestmentPlanModel
+      .find({ clientId: userId })
+      .populate('investmentplanId')
+      .populate('clientId')
+      .sort({ createdAt: -1 })
+      .exec();
+  }
 }

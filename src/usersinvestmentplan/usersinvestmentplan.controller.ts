@@ -73,4 +73,8 @@ export class UsersinvestmentplanController {
       percent,
     );
   }
+  @Get('user-investments/:userId')
+  async getUserInvestments(@Param('userId') userId: string) {
+    return this.usersinvestmentplanService.getUserInvestments(userId);
+  }
 }

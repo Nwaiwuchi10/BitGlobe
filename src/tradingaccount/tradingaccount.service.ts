@@ -7,7 +7,7 @@ import { CreateTradingaccountDto } from './dto/create-tradingaccount.dto';
 import { UpdateTradingaccountDto } from './dto/update-tradingaccount.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Tradingaccount } from './entities/tradingaccount.entity';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { Usersinvestmentplan } from 'src/usersinvestmentplan/entities/usersinvestmentplan.entity';
 import { MailService } from 'src/users/services/mai.service';
@@ -257,6 +257,7 @@ export class TradingaccountService {
   remove(id: number) {
     return `This action removes a #${id} tradingaccount`;
   }
+
   async getUserDepositWithdrawalSummary(userId: string) {
     if (!userId) {
       throw new NotFoundException('Invalid user ID');

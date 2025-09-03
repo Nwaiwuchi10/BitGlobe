@@ -16,9 +16,6 @@ export class Usersinvestmentplan extends Document {
   isPaused: boolean;
 
   @Prop({ default: false })
-  isAdmin: boolean;
-
-  @Prop({ default: false })
   isEnded: boolean;
   @Prop({ required: false })
   customInterestRate?: number;

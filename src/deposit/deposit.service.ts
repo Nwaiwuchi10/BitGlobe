@@ -244,4 +244,21 @@ export class DepositService {
       .sort({ createdAt: -1 })
       .exec();
   }
+  // deposit.service.ts
+  async getUserTotalDeposits(userId: string): Promise<number> {
+    const objectId = userId;
+    // new Types.ObjectId(userId);
+
+    const result = await this.depositModel.aggregate([
+      { $match: { clientId: objectId, depositStatus: 'Approved' } }, // Optional filter
+      {
+        $group: {
+          _id: null,
+          totalAmount: { $sum: '$amount' },
+        },
+      },
+    ]);
+
+    return result.length > 0 ? result[0].totalAmount : 0;
+  }
 }
