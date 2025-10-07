@@ -5,7 +5,7 @@ import { Injectable, InternalServerErrorException } from '@nestjs/common';
 @Injectable()
 export class MailService {
   private transporter: nodemailer.Transporter;
-  private readonly adminEmail = 'Johnbrightjb6@gmail.com';
+  private readonly adminEmail = 'vaulthubinvs@gmail.com';
   //   'Johnbrightjb6@gmail.com';
 
   constructor() {
