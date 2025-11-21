@@ -61,7 +61,7 @@ export class TradingaccountService {
     // if (acc.availableBalance < amount) {
     //   throw new BadRequestException('Insufficient funds');
     // }
-
+    acc.earnedFund -= amount;
     acc.availableBalance -= amount;
     acc.totalBalance -= amount;
 
