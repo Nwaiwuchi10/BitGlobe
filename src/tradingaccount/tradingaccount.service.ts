@@ -53,10 +53,14 @@ export class TradingaccountService {
         'Withdrawal not allowed until investment end date',
       );
     }
+    const withdrawable = acc.availableBalance + acc.earnedFund;
 
-    if (acc.availableBalance < amount) {
+    if (withdrawable < amount) {
       throw new BadRequestException('Insufficient funds');
     }
+    // if (acc.availableBalance < amount) {
+    //   throw new BadRequestException('Insufficient funds');
+    // }
 
     acc.availableBalance -= amount;
     acc.totalBalance -= amount;
